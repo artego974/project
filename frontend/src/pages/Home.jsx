@@ -15,9 +15,9 @@ function Home() {
                     </form>
                 </div>
                 <div className='w-1/2 flex justify-center items-center'>
-                        <button className='p-3 m-3 bg-green-300 rounded-3xl text-white hover:cursor-pointer ' onClick={()=> navigate("/create")} >Criar</button>
-                        <button className='p-3 m-3 bg-blue-300 rounded-3xl text-white hover:cursor-pointer' onClick={()=> navigate("/edit") }>Editar</button>
-                        <button className='p-3 m-3 bg-red-300 rounded-3xl text-white hover:cursor-pointer ' onClick={()=> navigate("/delete")}>Deletar</button>
+                        <button className='p-3 m-3 font-bold bg-green-300 rounded-3xl text-white hover:cursor-pointer ' onClick={()=> navigate("/create")} >Criar</button>
+                        <button className='p-3 m-3 font-bold bg-blue-300 rounded-3xl text-white hover:cursor-pointer' onClick={()=> navigate("/edit") }>Editar</button>
+                        <button className='p-3 m-3 font-bold bg-red-300 rounded-3xl text-white hover:cursor-pointer ' onClick={()=> navigate("/delete")}>Deletar</button>
                 </div>
             </div>
             <div className='flex justify-center items-center flex-col'>
