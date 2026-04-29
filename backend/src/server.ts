@@ -1,7 +1,6 @@
-
 import express from "express"
 import { AppDataSource } from "./config/data-source"
-import routes from "./routes/convidadosRoutes"
+import routes from "./routes/index"
 
 const app = express()
 const port = 3000

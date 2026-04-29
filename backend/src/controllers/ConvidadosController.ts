@@ -7,8 +7,8 @@ const service = new ConvidadosService()
 export class ConvidadosController{
     async list(req:Request, res:Response){
         try{
-        const {name} = req.query
-        const user = service.list((name as string))
+        // const {nome} = req.query
+        const user = service.list()
 
         return res.status(200).json(user)
         }catch(e:any){
@@ -19,7 +19,7 @@ export class ConvidadosController{
     async create(req:Request, res:Response){
         try{
             const data = req.body
-            const user = service.create(data)
+            const user = await service.create(data)
             return res.status(201).json(user)
         }catch(e:any){
             return res.status(400).json({message:e.message})
@@ -33,6 +33,15 @@ export class ConvidadosController{
             const user = service.update(id,data)
             return res.status(200).json(user)
 
+        }catch(e:any){
+            return res.status(400).json({message:e.message})
+        }
+    }
+    async delete(req:Request, res:Response){
+        try{
+            const {id} = req.params
+            const user = service.delete(id)
+            return res.status(200).json(user)
         }catch(e:any){
             return res.status(400).json({message:e.message})
         }
