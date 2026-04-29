@@ -19,4 +19,4 @@ O projeto é um consiste em um CRUD de convidados e integrado com o banco de dad
 
 As tecnologias utilizadas foram para o backend typescript typeorm reflect-metadata express ts-node-dev 
 
-As tecnologias utilizadas foram para o frontend vite react tailwindcss react-router-dom e lucide-react
+As tecnologias utilizadas foram para o frontend vite react tailwindcss react-router-dom 

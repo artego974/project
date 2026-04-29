@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { ConvidadosService } from "../services/ConvidadosService";
-
+import convidadosSchema from "../validators/ConvidadosSchema";
 
 const service = new ConvidadosService()
 
@@ -18,8 +18,8 @@ export class ConvidadosController {
     }
     async listByName(req: Request, res: Response) {
         try {
-            const {nome} = req.body
-            const user = await service.listByName(nome)
+            const nome =  req.query.nome
+            const user = await service.listByName((nome as string))
             return res.status(200).json(user)
         } catch (e: any) {
             return res.status(400).json({ message: e.message })
@@ -27,7 +27,8 @@ export class ConvidadosController {
     }
     async create(req: Request, res: Response) {
         try {
-            const data = req.body
+
+            const data = convidadosSchema.parse(req.body)
             const user = await service.create(data)
             return res.status(201).json(user)
         } catch (e: any) {
