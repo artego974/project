@@ -1,27 +1,21 @@
-import { Like } from "typeorm";
+import { Equal, Like } from "typeorm";
 import { AppDataSource } from "../config/data-source";
 import { Convidados } from "../models/Convidados";
 
 
 export class ConvidadosService {
     private repo = AppDataSource.getRepository(Convidados)
-    async listName(nome: string) {
-        if (nome) {
-            const exist = await this.repo.find({ where: Like[`%${(nome)}%`] })
-            return exist
-        }
-        return await this.repo.find()
-    }
     async list() {
-        return await this.repo.find()
-
-        // {
-        //     order: {
-        //         nome: "ASC",
-        //         id: "DESC",
-        //     },
-        // }
+        
+        const user = await this.repo.find()
+        return user
     }
+
+    async listByName(nome:string){
+        const user = await this.repo.findBy({nome: Like(`%${nome}%`)})
+        return user
+    }
+
     async create(data: any) {
         const exist = await this.repo.findOneBy({ email: data.email })
         if (exist) throw new Error("convidado ja existe")
