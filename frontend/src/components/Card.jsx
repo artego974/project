@@ -15,10 +15,10 @@ function Card() {
                     <h2 className='text-3xl font-bold'>{con.nome}</h2>
                 </div>
                 <div className='flex justify-center p-4 flex-col '>
-                    <p>{con.email}</p>
-                    <p>{con.cpf}</p>
-                    <p>{con.telefone}</p>
-                    <p>{con.data}</p>
+                    <p>Email:{con.email}</p>
+                    <p>Cpf:{con.cpf}</p>
+                    <p>Telefone:{con.telefone}</p>
+                    <p>Data:{con.data}</p>
                 </div>
             </div>
         )
